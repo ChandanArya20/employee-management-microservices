@@ -1,9 +1,6 @@
 package tech.hulkhire.employeeservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +8,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Setter
 @Getter
 public class Department {
     private Long id;
     private String name;
-    private List<Employee> employees = new ArrayList<>();
+    private List<Employee> employees;
 
     public Department(Long id, String name) {
         this.id = id;

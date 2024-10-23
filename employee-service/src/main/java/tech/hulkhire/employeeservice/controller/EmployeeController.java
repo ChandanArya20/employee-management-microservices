@@ -31,15 +31,15 @@ public class EmployeeController {
         return repository.getAllEmployees();
     }
 
+    @GetMapping("/departments/{id}")
+    public List<Employee> getAllByDepartmentId(@PathVariable Long id){
+        log.info("Employee findAll by department id");
+        return repository.getEmployeesByDepartmentId(id);
+    }
+
     @GetMapping("/{id}")
     public Employee getById(@PathVariable Long id){
         log.info("Employee find by id: {}",id);
         return repository.getEmployeeById(id);
-    }
-
-    @GetMapping("/departments/{id}")
-    public Employee getByDepartmentId(@PathVariable Long departmentId){
-        log.info("Employee find by departmentId: {}",departmentId);
-        return repository.getEmployeeByDepartmentId(departmentId);
     }
 }

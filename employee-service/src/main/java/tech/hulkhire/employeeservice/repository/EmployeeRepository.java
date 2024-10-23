@@ -35,4 +35,10 @@ public class EmployeeRepository {
                 .orElseThrow();
     }
 
+    public List<Employee> getEmployeesByDepartmentId(Long departmentId){
+        return employees.stream()
+                .filter(employee -> employee.departmentId().equals(departmentId))
+                .toList();
+    }
+
 }

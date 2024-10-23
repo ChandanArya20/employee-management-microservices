@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: department-service
+          uri: lb://department-service # Using load-balanced service discovery
+          predicates:
+            - Path=/departments/**
+
+        - id: employee-service
+          uri: lb://employee-service
+          predicates:
+            - Path=/employees/**
+
+    discovery:
+      locator:
+        enabled: true # Enable service discovery with Eureka
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
